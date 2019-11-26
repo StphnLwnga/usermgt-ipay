@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>PIG DICE</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com/css?family=Laila" rel="stylesheet">
+</head>
+<body>
+  <section>
+    <nav class= "navig">
+      <img src="img/bg.png" class="logo" alt="logo">
+      <img src="img/bg1.png" class="logo" alt="logo">
+      <ul>
+        <li> <a href="#">PLAY GAME</a> </li>
+        <li > <a href="" id="help">HOW TO PLAY</a> </li>
+      </ul>
+    </nav>
+  </section>
+  <header>
+    <div id="intro" class="header-container fs">
+      <div class="bcg"></div>
+      <header class="wrapper">
+        <div class="row" id="mm">
+          <div class="container">
+            <div class="header">
+              <h1>Pig Dice</h1>
+            </div>
+            <div class="hideform">
+              <div class="Players">
+                <br>
+                <form id="addPlayer">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="player1-name" placeholder="Enter Player 1 name">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="player2-name" placeholder="Enter Player 2 name">
+                  </div>
+                  <button type="submit" class="button">Start</button>
+                </form>
+              </div>
+            </div>
+            <div class="dicegame">
+              <div class="player1section">
+                <h1>Player One: <span class="player1-name"></span></h1>
+                <h2>Overall Score: <span class="Player1Overal"></span></h2>
+                <div class="player1">
+                  <h2>Dice Rolled: <span class="oneDiceroll"></span></h2>
+                  <h2>Current Score: <span class="oneCurrentscore"></span></h2>
+                  <button type="submit" id="onedice-roll" class="btn btn-danger">Roll</button>
+                  <button type="submit" id="onedice-hold" class="btn btn-primary">Hold</button>
+                </div>
+                <div class="messagePlayer1">
+                  <h2>Whoops! How  unlucky you got 1. Let player 2 play.</h2>
+                </div>
+              </div>
+              <img src="img/vs.jpg" alt="">
+              <div class="player2section">
+                <h1>Player Two: <span class="player2-name"></span></h1>
+                <h2>Overall Score: <span class="Player2Overal"></span></h2>
+                <div class="player2">
+                  <h2>Dice Rolled: <span class="twoDiceroll"></span></h2>
+                  <h2>Current Score: <span class="twoCurrentscore"></span></h2>
+                  <button type="submit" id="twodice-roll" class="btn btn-danger">Roll</button>
+                  <button type="submit" id="twodice-hold" class="btn btn-primary">Hold</button>
+                </div>
+              </div>
+              <div class="messagePlayer2">
+                <h2><strong>Whoops! How  unlucky you got 1. Let player 1 play.</strong></h2>
+              </div>
+            </div>
+            <div class="player1win">
+              <h1>You Won</h1>
+            </div>
+            <div class="player2win">
+              <h1>You Won</h1>
+            </div>
+          </div>
+          <br>
+          <div id="instructions">
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <h1>How to play </h1>
+                <ol>
+                  <li>Roll the dice when it's your turn to play in the game.</li>
+                  <li>If the player rolls a 1, they score nothing and it becomes the next player's turn.</li>
+                  <li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
+                  <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</li>
+                  <li>The first player to score 100 or more points wins.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <script   src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+          <script src="js/scripts.js"></script>
+        </body>
+        </html>
