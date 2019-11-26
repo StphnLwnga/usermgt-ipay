@@ -1,14 +1,15 @@
 <?php
 
 /**
- * Database Constants - these constants are required in order for there to be a 
+ * Database Constants - these constants are required in order for there to be a
  * successful connection to the database. Make sure the information is correct.
  */
 define("DB_TYPE", "mysql");
 define("DB_HOST", "localhost");
 define("DB_USER", "ipay");
 define("DB_PASS", "0725313208Evance!");
-define("DB_NAME", "slashdotpro_ipay");
+// define("DB_NAME", "slashdotpro_ipay");
+define("DB_NAME", "slashdotpro_api_db");
 
 
 /**
@@ -24,7 +25,7 @@ define("GUEST_NAME", "Guest");
  * Use groups to assign levels.
  */
 define("SUPER_ADMIN_LEVEL", 10); // Super Admin - There can be only one!
-define("ADMIN_LEVEL", 9); // Other Admins - Promoted by the Super Admin 
+define("ADMIN_LEVEL", 9); // Other Admins - Promoted by the Super Admin
 define("REGUSER_LEVEL", 3); // Normal Registered User
 define("ADMIN_ACT", 2); // Awaiting Admin activation
 define("ACT_EMAIL", 1); // Awaiting Email Activation
