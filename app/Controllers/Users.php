@@ -33,9 +33,10 @@ class Users extends BaseController
 			}
 			else
 			{
-				getPermissionNames($this->permissionsModel, $this->data['permissions'], true);
+				$permissions = getPermissionNames($this->permissionsModel, $this->data['permissions'], true);
 				$this->userModel->insert($this->data);
-				$user = $this->userModel->select_where(['email' => $this->data['email']]);
+                $user = $this->userModel->select_where(['email' => $this->data['email']]);
+                $user['permissions'] = $permissions;
 				$this->createLog(1, 'created user ' . $user['id']);
 				$response = $this->respondCreated(['message' => 'User Created', 'user' => $user]);
 			}

@@ -39,7 +39,7 @@ class Validation
 		'lastName'    => 'required|alpha|max_length[50]',
 		'userName'    => 'required|alpha_dash|max_length[10]|is_unique[users.userName]',
 		'email'       => 'required|valid_email|is_unique[users.email]',
-		'permissions' => 'required|alpha_numeric|min_length[1]',
+		'permissions' => 'required',
 		'password'    => 'required|regex_match[/^\S*$/]|min_length[6]|max_length[30]',
 	];
 
@@ -136,7 +136,7 @@ class Validation
 		'lastName'    => 'if_exist|alpha|max_length[50]',
 		'userName'    => 'if_exist|alpha_dash|max_length[10]|is_unique[users.userName]',
 		'email'       => 'if_exist|valid_email|is_unique[users.email]',
-		'permissions' => 'if_exist|alpha_numeric|min_length[1]',
+		'permissions' => 'if_exist',
 		'password'    => 'if_exist|regex_match[/^\S*$/]|min_length[6]|max_length[30]',
 		'permission'  => 'if_exist|alpha_dash|max_length[50]|is_unique[permissions.permission]',
 		'code'        => 'if_exist|is_natural_no_zero|is_unique[permissions.code]',

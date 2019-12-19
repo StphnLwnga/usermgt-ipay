@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Welcome to CodeIgniter</title>
+		<title>Welcome to USER MANAGER</title>
 
 		<link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 	</head>
@@ -103,32 +103,20 @@
 				</svg>
 			</div>
 
-			<h1>Welcome to CodeIgniter</h1>
+			<h1>Welcome to USER MANAGEMENT</h1>
 
-			<p class="version">version <?= CodeIgniter\CodeIgniter::CI_VERSION ?></p>
+			<p class="version">version 2.0</p>
 
 			<div class="guide">
-				<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-				<p>If you would like to edit this page you'll find it located at:</p>
 
 				<pre>
 				<code>
-					app/Views/welcome_message.php
+					API Documentation
 				</code>
 				</pre>
 
-				<p>The corresponding controller for this page is found at:</p>
-
-				<pre>
-				<code>
-					app/Controllers/Home.php
-				</code>
-				</pre>
-
-				<p>If you are exploring CodeIgniter for the very first time, you
-					should start by reading the
-					<a href="https://codeigniter4.github.io/CodeIgniter4">User Guide</a>.</p>
+				<p>For api DOCS visit
+					<a href="https://documenter.getpostman.com/view/5786008/SWEE1ZzT?version=latest">Documentation</a>.</p>
 
 			</div>
 
