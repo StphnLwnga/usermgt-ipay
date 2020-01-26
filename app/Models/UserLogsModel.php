@@ -15,7 +15,7 @@ class UserLogsModel extends Model {
 
 	protected function select_options()
 	{
-		$select = 'user_logs.userId,user_logs.logCode as operationID,logs.operation,user_logs.description,user_logs.userIP';
+		$select = 'user_logs.userId,user_logs.logCode as operationID,logs.operation,user_logs.description,user_logs.userIP, user_logs.created';
 		$this->select($select)->join('logs', 'user_logs.logCode = logs.code');
 	}
 
