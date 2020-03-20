@@ -49,6 +49,19 @@ class Validation
 		'password' => 'required|regex_match[/^\S*$/]|min_length[6]|max_length[30]',
 	];
 
+	public $forgot = ['email' => 'required|valid_email'];
+
+	public $reset = [
+		'email'    => 'required|valid_email',
+		'password' => 'required|regex_match[/^\S*$/]|min_length[6]|max_length[30]',
+	];
+
+	public $reset_errors = [
+		'password' => [
+			'regex_match' => 'Should only have aplhanumeric and special characters',
+		],
+	];
+
 	public $signup_errors = [
 		'userName' => [
 			'is_unique' => 'Already exists.',

@@ -13,8 +13,8 @@ function generateToken($data)
 {
 	$issuedAt = time();
 	$payload  = [
-		'iss'  => 'ipay.com',
-		'aud'  => 'users@ipay.com',
+		'iss'  => 'ipayafrica.com',
+		'aud'  => 'users@ipayafrica.com',
 		'iat'  => $issuedAt,
 		'nbf'  => $issuedAt,
 		'exp'  => $issuedAt + HOUR,

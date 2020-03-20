@@ -35,8 +35,8 @@ class Users extends BaseController
 			{
 				$permissions = getPermissionNames($this->permissionsModel, $this->data['permissions'], true);
 				$this->userModel->insert($this->data);
-                $user = $this->userModel->select_where(['email' => $this->data['email']]);
-                $user['permissions'] = $permissions;
+				$user                = $this->userModel->select_where(['email' => $this->data['email']]);
+				$user['permissions'] = $permissions;
 				$this->createLog(1, 'created user ' . $user['id']);
 				$response = $this->respondCreated(['message' => 'User Created', 'user' => $user]);
 			}
@@ -135,6 +135,89 @@ class Users extends BaseController
 					$this->createLog(2, 'successful');
 					$token    = generateToken($login_user);
 					$response = $this->respond(['message' => 'Login successful!', 'token' => $token]);
+				}
+			}
+		}
+		else
+		{
+			$response = $this->respond(['message' => 'Method Not Allowed'], 405);
+		}
+
+		return $response;
+	}
+
+	public function forgot_password()
+	{
+		$response;
+		if (($this->method === 'post'))
+		{
+			validateJson($this->data, $this->method);
+			$this->validation->run($this->data, 'forgot');
+			$errors = $this->validation->getErrors();
+			if ($errors)
+			{
+				$response = $this->fail($errors);
+			}
+			else
+			{
+				$user = $this->userModel->select_all(['email' => $this->data['email']]);
+				if (! $user)
+				{
+					$response = $this->respond(['message' => 'email sent']);
+				}
+				else
+				{
+					$this->current_user = $user;
+					$token              = generateToken(['email' => $this->data['email'], 'permissions' => ['null']]);
+					$email_html         = view('reset_password', ['url' => 'https://htkl/kll/' . $token]);
+					$email_url          = $_ENV['EE_URI'] . $_ENV['EE_VERSION'] . '/emailhhhhj   h/send?apikey=' . $_ENV['EE_API_KEY'] . urlencode('&subject=Password Reset&msgFrom=admin@ipayafrica.com&msgFromName=IPAY_USERS&msgTo=' . $this->data['email'] . '&bodyHtml=' . $email_html);
+					$email_send         = $this->client->request('GET', $email_url, ['headers' => ['Accept' => 'application/json', 'http_errors' => false]]);
+
+					if ($email_send->getStatusCode() === 200)
+					{
+						$this->createLog(5, 'forgot password');
+						$response = $this->respond(['message' => $email_send->getStatusCode()]);
+					}
+					else
+					{
+						$response = $this->fail(['message' => 'an error has occured']);
+					}
+				}
+			}
+		}
+		else
+		{
+			$response = $this->respond(['message' => 'Method Not Allowed'], 405);
+		}
+
+		return $response;
+	}
+
+	public function reset_password()
+	{
+		$response;
+		if (($this->method === 'post'))
+		{
+			validateJson($this->data, $this->method);
+			$this->validation->run($this->data, 'reset');
+			$errors = $this->validation->getErrors();
+			if ($errors)
+			{
+				$response = $this->fail($errors);
+			}
+			else
+			{
+				$user = $this->userModel->select_all(['email' => $this->data['email']]);
+				if (! $user)
+				{
+					$response = $this->failNotFound('User not found!');
+				}
+				else
+				{
+					unset($this->data['email']);
+					$this->userModel->update($user['id'], $this->data);
+					$this->createLog(5, 'reset password');
+					$response = $this->respond(['message' => 'reset successful!']);
 				}
 			}
 		}

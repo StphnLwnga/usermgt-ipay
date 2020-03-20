@@ -52,14 +52,15 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		// $this->session = \Config\Services::session();
-      	//header('Access-Control-Allow-Origin: http://localhost:3000');
-        header('Access-Control-Allow-Origin: *');
-      	header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-      	header('Access-Control-Allow-Headers: append,delete,entries,foreach,get,has,keys,set,values,Authorization');
-      	header('Access-Control-Allow-Credentials: true');
-      	header('Access-Control-Allow-Headers: Content-Type');
+		//header('Access-Control-Allow-Origin: http://localhost:3000');
+		header('Access-Control-Allow-Origin: *');
+		header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+		header('Access-Control-Allow-Headers: append,delete,entries,foreach,get,has,keys,set,values,Authorization');
+		header('Access-Control-Allow-Credentials: true');
+		header('Access-Control-Allow-Headers: Content-Type');
 		header('Content-Type: application/json');
 		$this->validation       = \Config\Services::validation();
+		$this->client           = \Config\Services::curlrequest();
 		$this->userModel        = new UserModel();
 		$this->statusModel      = new StatusModel();
 		$this->permissionsModel = new PermissionsModel();
